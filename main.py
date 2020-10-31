@@ -1,22 +1,9 @@
-from flask import Flask, render_template
-import csv
+from flask import Flask, render_template, request
 import json
 
 app = Flask(__name__)
 
-@app.route("/oscar/")
-def oscar():
-    csv_name = "oscar_age_male.csv"
-    data = []
-    with open(csv_name) as f:
-        reader = csv.reader(f)
-        next(f)
-        for line in reader:
-            data.append(line[3])
-
-    return render_template("oscars.html", content=data)
-
-@app.route("/beatles/")
+@app.route("/")
 def beatles():
     json_file = "data.json"
     with open(json_file) as f:
@@ -33,7 +20,7 @@ def songs(id):
         if obj["id"] == int(id):
             return render_template("songs.html", content=obj["tracks"])
         
-    return "coucou"
+    return "No data found"
 
 if __name__ == "__main__":
     app.run(debug=True)
