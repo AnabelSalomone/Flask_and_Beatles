@@ -5,8 +5,11 @@
 {% endblock %}
 
 {% block body %}
+
     {% for item in content %}
-       <div><input type="checkbox" id={{loop.indexO}} name="fav"> {{ item }}</div>
+
+        <a href="{{ url_for("video", query=item) }}"> {{ item }} </a>
+
     {% endfor %}   
        
 {% endblock %}
