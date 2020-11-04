@@ -23,7 +23,7 @@ def songs(id):
 
     for obj in json_data:
         if obj["id"] == int(id):
-            return render_template("songs.html", content=obj["tracks"])
+            return render_template("songs.html", content=obj["tracks"], album=obj["name"])
         
     return "No data found"
 
@@ -42,7 +42,7 @@ def video(query):
             if search_result["id"]["kind"] == "youtube#video":
                 video.append(search_result["id"]["videoId"])
 
-        return render_template("video.html", url=video)
+        return render_template("video.html", url=video, song=query)
 
 
 if __name__ == "__main__":

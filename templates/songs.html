@@ -6,10 +6,10 @@
 
 {% block body %}
 
+    <h1>Song list for {{album}}</h1>
     {% for item in content %}
 
-        <a href="{{ url_for("video", query=item) }}"> {{ item }} </a>
+       <p><a href="{{ url_for("video", query=item) }}"> {{ item }} </a></p>
 
     {% endfor %}   
-       
 {% endblock %}

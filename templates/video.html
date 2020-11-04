@@ -1,9 +1,13 @@
+{% extends "base.html" %}
+
 {% block header%}
 
 {% endblock %}
 
 {% block body %}
-
-<iframe width="853" height="480" src={{"https://www.youtube.com/embed/" + url[0]}} frameborder="0"></iframe>
-
+   
+    <h1>{{song}}</h1>
+    <div class="container">
+        <iframe width="853" height="480" src={{"https://www.youtube.com/embed/" + url[0]}} frameborder="0"></iframe>
+    </div>
 {% endblock %}
